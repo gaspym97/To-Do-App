@@ -1,0 +1,13 @@
+.taskPending {
+    cursor: pointer;
+    padding: 8x;
+    transition: all 0.2s;
+}
+
+.taskCompleted {
+    cursor: pointer;
+    padding: 8x;
+    transition: all 0.2s;
+    text-decoration: line-through;
+    color: gray;
+}
