@@ -14,10 +14,26 @@ addBtn.addEventListener('click', () => {
     // store the text inside the new li
     newTask.textContent = text
     // always add the "task" class
-    newTask.classList.add('task')
+    newTask.classList.add('taskPending')
 
     // append it to the existing ul
     taskList.appendChild(newTask)
+
+    // create a delete btn
+    const delBtn = document.createElement('button')
+    delBtn.innerText = 'Delete Task'
+    delBtn.classList.add('delete-btn')
+
+    // remove new task
+    delBtn.addEventListener('click', () => {
+        newTask.remove()
+    })
+
+    // append the del btn to the task
+    newTask.appendChild(delBtn)
+
+    //clear input field
+    input.value = ""
 })
 
 // change taks to completed
