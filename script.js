@@ -16,20 +16,19 @@ addBtn.addEventListener('click', () => {
     // always add the "task" class
     newTask.classList.add('taskPending')
 
-    // append it to the existing ul
-    taskList.appendChild(newTask)
-
     // create a delete btn
     const delBtn = document.createElement('button')
     delBtn.innerText = 'Delete Task'
     delBtn.classList.add('delete-btn')
 
-    // remove new task
+    // delete btn logic 
     delBtn.addEventListener('click', () => {
         newTask.remove()
     })
 
-    // append the del btn to the task
+    // append new task to the ul
+    taskList.appendChild(newTask)
+    // append del btn to the task
     newTask.appendChild(delBtn)
 
     //clear input field
@@ -41,10 +40,8 @@ taskList.addEventListener('click', (e) => {
     const task = e.target
 
     // mark as completed or pending
-    if (task.className === 'taskPending') {
-        task.className = 'taskCompleted'
-    }
-    else {
-        task.className = 'taskPending'
+    if (task.tagName === 'LI') {
+        task.classList.toggle('taskPending')
+        task.classList.toggle('taskCompleted')
     }
 })
