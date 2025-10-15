@@ -3,58 +3,64 @@ const addBtn = document.getElementById("add-task-btn")
 const taskList = document.getElementById("task-list")
 
 // utility functions
+function createTaskElement (text, className = 'taskPending') {
+    const li = document.createElement('li');
+    li.className = className;
+
+    const span = document.createElement('span');
+    span.textContent = text;
+    li.appendChild(span);
+
+    const delBtn = document.createElement('button');
+    delBtn.innerHTML = 'Delete Task';
+    delBtn.classList.add('delete-btn');
+    li.appendChild(delBtn);
+
+    return li;
+}
+
 function saveTasks() {
     const tasks = []
-
-    document.querySelectorAll('#task-list li').forEach(task => {
-        const text = task.querySelector('span').textContent
+    document.querySelectorAll('#task-list li span').forEach(span => {
         tasks.push({
-            text,
-            className: task.className
+            text: span.textContent,
+            className: span.parentElement.className
         })
     })
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
-// create new tasks
+function loadTasks() {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || []
+    savedTasks.forEach(task => {    
+        taskList.appendChild(createTaskElement(task.text, task.className))
+    });
+}
+
+// add new task
 addBtn.addEventListener('click', () => {
-
-    // Store the text in a variable
     const text = input.value.trim() //trim() to sanitize user input
-    // create a new li
-    if (text === "") return // prevent empty tasks
+    if (!text) return;
 
-    const newTask = document.createElement('li')
-    newTask.classList.add('taskPending')
-
-    const span = document.createElement('span')
-    span.textContent = text
-
-    const delBtn = document.createElement('button')
-    delBtn.innerText = 'Delete Task'
-    delBtn.classList.add('delete-btn')
-
-    delBtn.addEventListener('click', () => {
-        newTask.remove()
-        saveTasks()
-    })
-
-    newTask.appendChild(span)
-    newTask.appendChild(delBtn)
-    taskList.appendChild(newTask)
-
+    taskList.appendChild(createTaskElement(text));
+    input.value = '';
     saveTasks()
-    //clear input field
-    input.value = ""
 })
 
-// change taks to completed
 taskList.addEventListener('click', (e) => {
-    const task = e.target
+    const li = e.target.closest('li'); //find li that was clicked
+    if (!li) return;
 
-    // mark as completed or pending
-    if (task.tagName === 'SPAN') {
-        task.classList.toggle('taskPending')
-        task.classList.toggle('taskCompleted')
-    }
-})
+    // toggle completed / pending
+    if (e.target.tagName === 'SPAN') {
+        li.classList.toggle('taskPending')
+        li.classList.toggle('taskCompleted')
+    } else if (e.target.classList.contains('delete-btn')) {
+        // delete task
+        li.remove();
+    };
+
+    saveTasks();
+});
+
+loadTasks()
