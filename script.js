@@ -57,9 +57,8 @@ function editTask(li) {
         const newTask = document.createElement('span')
         newTask.textContent = input.value
         li.replaceChild(newTask, input)
+        saveTasks()
     })
-
-    saveTasks()
 };
 
 // add new task
