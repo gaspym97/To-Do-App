@@ -11,13 +11,18 @@ function createTaskElement (text, className = 'taskPending') {
     span.textContent = text;
     li.appendChild(span);
 
+    const editBtn = document.createElement('button');
+    editBtn.innerHTML = 'Edit Task';
+    editBtn.classList.add('edit-btn');
+    li.appendChild(editBtn);
+
     const delBtn = document.createElement('button');
     delBtn.innerHTML = 'Delete Task';
     delBtn.classList.add('delete-btn');
     li.appendChild(delBtn);
 
     return li;
-}
+};
 
 function saveTasks() {
     const tasks = []
@@ -28,14 +33,34 @@ function saveTasks() {
         })
     })
     localStorage.setItem('tasks', JSON.stringify(tasks))
-}
+};
 
 function loadTasks() {
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || []
     savedTasks.forEach(task => {    
         taskList.appendChild(createTaskElement(task.text, task.className))
     });
-}
+};
+
+function editTask(li) {
+    //1 focus on text
+    const span = li.querySelector('span')
+
+    const input = document.createElement('input')
+    input.type = 'text'
+    input.value = span.textContent
+
+    li.replaceChild(input, span)
+    input.focus()
+
+    input.addEventListener('blur', () => {
+        const newTask = document.createElement('span')
+        newTask.textContent = input.value
+        li.replaceChild(newTask, input)
+    })
+
+    saveTasks()
+};
 
 // add new task
 addBtn.addEventListener('click', () => {
@@ -51,11 +76,16 @@ taskList.addEventListener('click', (e) => {
     const li = e.target.closest('li'); //find li that was clicked
     if (!li) return;
 
-    // toggle completed / pending
     if (e.target.tagName === 'SPAN') {
+        // toggle completed / pending
         li.classList.toggle('taskPending')
         li.classList.toggle('taskCompleted')
-    } else if (e.target.classList.contains('delete-btn')) {
+    } 
+    else if (e.target.classList.contains('edit-btn')) {
+        // edit task
+        editTask(li)
+    } 
+    else if (e.target.classList.contains('delete-btn')) {
         // delete task
         li.remove();
     };
