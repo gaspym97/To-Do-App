@@ -1,3 +1,31 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Make html and body take full height */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-size: 40px;
+}
+
+/* Make container fill the viewport */
+.container {
+    min-height: 100vh; /* Full viewport height */
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .taskPending {
     cursor: pointer;
     padding: 8x;
