@@ -7,8 +7,11 @@
 
 /* Make html and body take full height */
 html, body {
-    height: 100%;
-    width: 100%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 body {
@@ -17,12 +20,13 @@ body {
 
 /* Make container fill the viewport */
 .container {
-    min-height: 100vh; /* Full viewport height */
-    width: 100%;
-    padding: 20px;
+    padding: 3rem;
+    border-radius: 3rem;
+    height: 30rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    background-color: blue;
+    flex-direction: column;
     justify-content: center;
 }
 
