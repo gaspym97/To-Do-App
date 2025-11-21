@@ -91,3 +91,8 @@ li {
 span {
     width: 40%;
 }
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
