@@ -4,26 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link to CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>To-Do App</title>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
-         <div>
+         <div class="header">
             <h1>My To-Do List</h1>
          </div>
          <div class="content">
-            <input 
-            type="text" name="" id="task-input" placeholder="Add a new task"
+            <div class="task-input">
+                <input 
+                type="text" name="" id="task-input" placeholder="Add a new task"
         />
-            <button id="add-task-btn">Add task</button>
+                <button id="add-task-btn">Add task</button>
+            </div>
             <ul id="task-list">
+                <li class="task-item" data-id="1">
+                    <button class="check-mark"></button>
+                    <span class="task-title">Buy bananas</span>
+                    <button class="edit-btn">Edit Task</button>
+                    <button class="delete-btn">Delete Task</button>
+                </li>
                 <!-- List of tasks-->
             </ul>
          </div>
     </div>
     <!-- Link to JavaScript file -->
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

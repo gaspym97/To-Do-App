@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    background: rgb(134, 134, 134);
+    padding: 3rem;
+    height: 60%;
+    width: 40%;
+    box-shadow: 0 1rem 3rem 1rem rgba(0, 23, 71, 0.15);
+    max-width: 30rem;
+}
+
+.content {
+    display: contents;
+}
+
+#add-task-btn {
+    background-color: #25bb55;
+    border: 0.1rem solid #1d8b40;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+#add-task-btn:hover {
+    background-color: #2cd562;
+    transition: 0.3s ease;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: Barlow, sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    padding: 0.8rem;
+}
+
+input {
+    width: 70%;
+    border: 0.1rem solid #51a5b7;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.task-input {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.check-mark {
+    border: 0.2rem solid red;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    padding: 1.3rem;
+}
