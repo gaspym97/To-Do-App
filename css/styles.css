@@ -1,23 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e0e7ff;
 }
 
 .container {
+    background-color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     border-radius: 2rem;
-    background: rgb(134, 134, 134);
     padding: 3rem;
-    height: 60%;
-    width: 40%;
+    height: 70%;
+    width: 50%;
     box-shadow: 0 1rem 3rem 1rem rgba(0, 23, 71, 0.15);
-    max-width: 30rem;
+    max-width: 35rem;
 }
 
 .content {
@@ -48,17 +53,29 @@ h1 {
 
 input {
     width: 70%;
-    border: 0.1rem solid #51a5b7;
+    border: 0.1rem solid #75787938;
     border-radius: 0.5rem;
     padding: 0.8rem;
     font-size: 1rem;
+    color: #757879c6;
+}
+
+input::placeholder {
+    color: #757879c6;
+    opacity: 1;
+}
+
+input:focus {
+    border-color: #c0cefb;
+    outline: none;
+    box-shadow: ;
 }
 
 .task-input {
     display: flex;
     justify-content: space-around;
     gap: 1rem;
-    width: 75%;
+    width: 85%;
 }
 
 .check-mark {
@@ -78,6 +95,8 @@ ul {
     margin: 2rem 0.5rem;
     overflow-y: auto;
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
 }
 
 li {
