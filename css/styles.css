@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e0e7ff;
+    background-color: #7493ff;
 }
 
 .container {
@@ -30,16 +30,22 @@ body {
 }
 
 #add-task-btn {
-    background-color: #25bb55;
-    border: 0.1rem solid #1d8b40;
+    background-color: #59ff8e;
+    border: 0.1rem solid #75787938;
     border-radius: 0.5rem;
     padding: 0.8rem;
     cursor: pointer;
 }
 
 #add-task-btn:hover {
-    background-color: #2cd562;
     transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
+}
+
+#add-task-btn:active {
+    background-color: #7493ff;
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
 }
 
 h1 {
@@ -79,7 +85,7 @@ input:focus {
 }
 
 .check-mark {
-    border: 0.2rem solid red;
+    border: 0.2rem solid #7493ff;
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
