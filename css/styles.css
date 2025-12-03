@@ -59,6 +59,17 @@ body {
     width: 5rem;
 }
 
+.edit-btn:hover {
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
+}
+
+.edit-btn:active {
+    background-color: #7493ff;
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
+}
+
 .delete-btn {
     background-color: #ff0202bf;
     border: 0.1rem solid #75787938;
@@ -67,6 +78,17 @@ body {
     cursor: pointer;
     height: 2.4rem;
     width: 5rem;
+}
+
+.delete-btn:hover {
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
+}
+
+.delete-btn:active {
+    background-color: #7493ff;
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 2px #7493ff;
 }
 
 h1 {
