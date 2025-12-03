@@ -7,19 +7,28 @@ function createTaskElement (text, className = 'taskPending') {
     const li = document.createElement('li');
     li.className = className;
 
+    const button = document.createElement('button');
+    button.classList.add('check-mark');
+    li.appendChild(button);
+
     const span = document.createElement('span');
+    span.classList.add('task-title');
     span.textContent = text;
     li.appendChild(span);
+
+    const div = document.createElement('div');
+    div.classList.add('buttons');
+    li.appendChild(div);
 
     const editBtn = document.createElement('button');
     editBtn.innerHTML = 'Edit Task';
     editBtn.classList.add('edit-btn');
-    li.appendChild(editBtn);
+    div.appendChild(editBtn);
 
     const delBtn = document.createElement('button');
     delBtn.innerHTML = 'Delete Task';
     delBtn.classList.add('delete-btn');
-    li.appendChild(delBtn);
+    div.appendChild(delBtn);
 
     return li;
 };
