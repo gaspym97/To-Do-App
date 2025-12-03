@@ -128,8 +128,7 @@ input:focus {
 .check-mark {
     border: 0.2rem solid #7493ff;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    padding: 0.5rem 0.5rem;
     background-color: transparent;
     display: flex;
     align-items: center;
