@@ -52,7 +52,6 @@ function loadTasks() {
 };
 
 function editTask(li) {
-    //1 focus on text
     const span = li.querySelector('span')
 
     const input = document.createElement('input')
@@ -70,7 +69,7 @@ function editTask(li) {
     })
 };
 
-// add new task
+// create new task
 addBtn.addEventListener('click', () => {
     const text = input.value.trim() //trim() to sanitize user input
     if (!text) return;
@@ -81,14 +80,18 @@ addBtn.addEventListener('click', () => {
 })
 
 taskList.addEventListener('click', (e) => {
-    const li = e.target.closest('li'); //find li that was clicked
+    const li = e.target.closest('li');
     if (!li) return;
 
-    if (e.target.tagName === 'SPAN') {
-        // toggle completed / pending
+    const checkMarkBtn = e.target.closest('button.check-mark');
+    if (checkMarkBtn) {
+        // clicking the check mark button should toggle the task status
+        const li = checkMarkBtn.parentElement;
         li.classList.toggle('taskPending')
         li.classList.toggle('taskCompleted')
-    } 
+        saveTasks();
+        return;
+    }
     else if (e.target.classList.contains('edit-btn')) {
         // edit task
         editTask(li)
