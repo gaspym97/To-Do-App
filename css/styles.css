@@ -161,3 +161,12 @@ span {
     display: flex;
     gap: 1rem;
 }
+
+.taskCompleted span {
+    text-decoration: line-through;
+    color: #757879c6;
+}
+
+.taskCompleted .check-mark {
+    background-color: #7493ff;
+}
